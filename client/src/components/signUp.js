@@ -29,11 +29,13 @@ class SignUpPage extends Component {
     }
 
     responseGoogle = (response) => {
+        console.log(response)
         let loggedin_user;
 
         this.state.users.forEach(user => {
             if (user.email === response.profileObj.email) {
                 this.setState({ isNewUser: false });
+                loggedin_user = user;
             } else {
                 loggedin_user = user;
             }
