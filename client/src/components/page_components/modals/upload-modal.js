@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 
 class UploadModal extends Component {
     constructor(props) {
@@ -76,6 +77,10 @@ class UploadModal extends Component {
     render() {
         const showHideClassName = this.props.show ? 
         "upload-modal upload-display-block" : "upload-modal upload-display-none";
+
+        if (this.state.refresh) {
+            return <Redirect to="/account" />
+        }
       
         return (
             <div className={showHideClassName}>

@@ -3,7 +3,6 @@ import GoogleLogin from 'react-google-login';
 
 import Header from './page_components/header';
 import Footer from './page_components/footer';
-import { Redirect } from 'react-router-dom';
 
 class SignUpPage extends Component {
     constructor(props){
@@ -33,14 +32,16 @@ class SignUpPage extends Component {
         let loggedin_user;
 
         this.state.users.forEach(user => {
-            // if (user.email === response.profileObj.email) {
-            //     this.setState({ isNewUser: false });
-            // }
-
-            if (user.email === "terer@gmail.com") {
+            if (user.email === response.profileObj.email) {
                 this.setState({ isNewUser: false });
+            } else {
                 loggedin_user = user;
             }
+
+            // if (user.email === "terer@gmail.com") {
+            //     this.setState({ isNewUser: false });
+            //     loggedin_user = user;
+            // }
         });
         
         if (this.state.isNewUser) {
