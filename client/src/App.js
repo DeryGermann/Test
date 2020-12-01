@@ -24,6 +24,7 @@ class App extends Component {
         <Route path='/public' component={PublicPage}/>
         <ProtectedRoute path='/account' component={AccountPage} auth={isLoggedIn}/>
         <ProtectedRoute path='/puzzle' component={PuzzlePage} auth={isLoggedIn}/>
+        <Route path='*' component={HomePage} />
       </Router>
     );
   }
